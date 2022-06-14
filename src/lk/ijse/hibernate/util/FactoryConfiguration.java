@@ -26,7 +26,9 @@ public class FactoryConfiguration {
                 .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Laptop.class)
                 .addAnnotatedClass(Owner.class)
-                .addAnnotatedClass(Pet.class);
+                .addAnnotatedClass(Pet.class)
+                .addAnnotatedClass(Subject.class)
+                .addAnnotatedClass(Lecture.class);
         sessionFactory=configuration.buildSessionFactory();
     }
 

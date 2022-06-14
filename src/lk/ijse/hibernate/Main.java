@@ -38,7 +38,7 @@ public class Main {
 
         //one to many relation
 
-        /*Owner owner = new Owner();
+      /*  Owner owner = new Owner();
         owner.setName("pathum");
         owner.setoId("O001");
 
@@ -46,20 +46,64 @@ public class Main {
         Pet pet2 = new Pet("P002","dog",owner);
         Pet pet3 = new Pet("P003","bird",owner);
 
+
         ArrayList<Pet> pets = new ArrayList<>();
 
-        pets.add(pet1);
+        // 1 methodology
+       *//* pets.add(pet1);
         pets.add(pet2);
         pets.add(pet3);
 
-        owner.setPetList(pets);
+        owner.setPetList(pets);*//*
+
+        // 2 methodology
+
+        owner.getPetList().add(pet1);
+        owner.getPetList().add(pet2);
+        owner.getPetList().add(pet3);
+
 
         session.save(owner);
         session.save(pet1);
         session.save(pet2);
+        session.save(pet3);
 */
 
+         // many to many relation
 
+        Lecture lecture1 = new Lecture();
+        lecture1.setlId("L001");
+        lecture1.setName("pathum");
+
+        Lecture lecture2 = new Lecture();
+        lecture2.setlId("L002");
+        lecture2.setName("lakshan");
+
+        Subject subject1 = new Subject();
+        subject1.setSid("S001");
+        subject1.setName("kalum");
+
+        Subject subject2 = new Subject();
+        subject2.setSid("S002");
+        subject2.setName("nuwan");
+
+        lecture1.getSubjectsList().add(subject1);
+        lecture1.getSubjectsList().add(subject2);
+
+        lecture2.getSubjectsList().add(subject1);
+        lecture2.getSubjectsList().add(subject2);
+
+        subject1.getLectureList().add(lecture1);
+        subject1.getLectureList().add(lecture2);
+
+        subject2.getLectureList().add(lecture1);
+        subject2.getLectureList().add(lecture2);
+
+        session.save(lecture1);
+        session.save(lecture2);
+
+        session.save(subject1);
+        session.save(subject2);
 
         transaction.commit();
 
